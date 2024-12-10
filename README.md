@@ -112,4 +112,4 @@ Distributed under the ICU License. See `LICENSE` for more information.
 
 Your Name -monicaphiri90@gmail.com
 
-Project Link: [https://github.com/monica172316/weather-forcast-App](https://github.com/monica172316/weather-App)
+Project Link: [https://github.com/monica172316/weather-forcast-App](https://github.com/monica172316/weather-forcast-App)
