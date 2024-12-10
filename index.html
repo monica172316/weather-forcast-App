@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&amp;family=Oxygen+Mono&amp;display=swap" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather forecast Lusaka</title>
+  </head>
+  <body style="z-index: 1; width: 1102px; height: 74px; position: absolute; top: 0px; left: 67px">
+    <main>
+      <!-- search bar and city name -->
+      <section class="container" style="z-index: 1; height: 679px; position: absolute; top: -8px; left: -97px; width: 130%;">
+        <div class="row" style="z-index: 1; width: 1375px; height: 24px; position: absolute; top: -11px; left: 7px">
+          <form id="search-form" class="col" style="left: 0px; top: -3px">
+            <input id="search-input" aria-describedby="searchCity" autocomplete="off" class="search-form" placeholder="Search city..." style="z-index: 1; position: absolute; top: 40px; left: 65px; width: 207px;" type="text" />
+            <button style="z-index: 1; position: absolute; top: 58px; left: 327px" type="submit">Search</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  </form>
+          <h1 id="searched-city" class="col d-flex justify-content-center align-items-center city-title" style="height: 38px; position: absolute; top: 148px; left: 77px; z-index: 8; color: #FFFFFF; font-size: 48pt; font-weight: normal;">
+            Lusaka
+            
+          </h1>
+        </div>
+        <style>
+    .slider-container {
+      width: 200%;
+      height: 900px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.10s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  	  	.auto-style2 {
+			font-size: large;
+		}
+		.auto-style3 {
+			color: #000000;
+			font-size: x-large;
+		}
+  	    .auto-style7 {
+			margin-top: 2px;
+			margin-bottom: 6px;
+			font-size: large;
+			color: #000000;
+		}
+  	  .auto-style8 {
+			color: #000000;
+			font-size: large;
+		}
+  </style>
+<body style="z-index: 1; width: 1102px; height: 74px; position: absolute; top: 0px; left: 67px">
+  <div class="slider-container">
+    <div class="slide active" style="left: -1px; top: 0">
+      <img alt="Slide 1" src="myslides/slide-01.jpg" />
+    </div>
+    <div class="slide">
+      <img alt="Slide 2" src="slide-02.jpg" />
+    </div>
+    <div class="slide" style="left: 10px; top: 0; width: 100%">
+      <img alt="Slide 3" src="myslides/slide-03.jpg" />
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    setInterval(nextSlide, 5000);
+  </script>
+       
+      
+      </body></section><body style="z-index: 1; width: 1102px; height: 74px; position: absolute; top: 0px; left: 67px">
+
+      <!-- temp and day info -->
+      <section class="current-weather">
+        <div class="container" style="z-index: 1; height: 24px; position: absolute; top: 143px; left: 0px">
+          <div class="row" style="z-index: 1; width: 1319px; height: 24px; position: absolute; top: 0px; left: 0px">
+            <h1 id="current-temperature" class="col temp-title" style="height: 97px; position: absolute; top: -13px; left: 522px; z-index: 1; width: 7%; color: #FFFFFF; font-size: xx-large;">
+			&nbsp;</h1>
+            <div class="col todays-info" style="height: 139px; position: absolute; top: -37px; left: 999px; z-index: 2; width: 30%;">
+              <p id="current-time" class="auto-style8" style="z-index: 1; width: 396px; height: 22px; position: absolute; top: 83px; left: 18px">
+			  <strong>11:00</strong></p>
+              <h2 id="current-day" class="text-white">Today</h2>
+              <p id="weather-type" class="auto-style8" style="z-index: 1; width: 396px; height: 22px; position: absolute; top: 53px; left: 16px">
+			  <strong>Cloudy</strong></p>
+            </div>
+            <div class="col d-flex align-items-center side-info" style="height: 79px; position: absolute; top: 294px; left: 30px; z-index: 3; width: 26%; right: 916px;">
+              <ul>
+                <li class="auto-style2"><span class="auto-style3"><strong>Humidity</strong>:</span> <span id="humidity"></span></li>
+                <li class="auto-style3"><strong>Wind</strong>:<span id="wind"></span></li>
+               
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--5 day forecast-->
+      <section class="container" style="z-index: 1; height: 24px; position: absolute; top: 286px; left: 471px; width: 78%;">
+        <div class="row week-forecast" style="z-index: 1; width: 401px; height: 24px; position: absolute; top: -38px; left: 218px">
+          <div class="col" style="height: 133px; position: absolute; top: 186px; left: 297px; z-index: 6; width: 20%;">
+            <h3 class="text-white">Thu</h3>
+            <br /><img src="https://img.icons8.com/color-glass/42/000000/rain.png" /><br />
+            <p class="auto-style7"><strong>Rain</strong></p>
+            <span class="text-white">2Â°</span>
+          </div>
+          <div class="col" style="height: 133px; position: absolute; top: 188px; left: 479px; z-index: 5; width: 23%;">
+            <h3 class="text-white">Fri</h3>
+            <br /><img src="https://img.icons8.com/color-glass/42/000000/cloud.png" /><br />
+            <p class="auto-style7"><strong>Cloudy</strong></p>
+            <span class="text-white">4Â°</span>
+          </div>
+          <div class="col" style="height: 133px; position: absolute; top: 187px; left: 72px; z-index: 7; width: 30%;">
+            <h3 class="text-white">Wed</h3>
+            <br /><img src="https://img.icons8.com/color-glass/42/000000/partly-cloudy-day.png" /><br />
+            <p class="auto-style7"><strong>Partly cloudy</strong></p>
+            <span class="text-white">6Â°</span>
+          </div>
+          <div class="col" style="height: 133px; position: absolute; top: 185px; left: -275px; z-index: 4; width: 18%;">
+            <h3 class="text-white">Mon</h3>
+            <br /><img src="https://img.icons8.com/color-glass/42/000000/sun.png" /><br />
+            <p class="weather"><span class="text-black-50"><strong>Sunny</strong></span></p><span class="text-warning">
+              </span>
+            <span class="text-white">8Â°</span>
+          </div>
+          <div class="col" style="height: 141px; position: absolute; top: 186px; left: -104px; z-index: 9; width: 21%">
+            <h3 class="text-white">Tues</h3>
+            <br /><img src="https://img.icons8.com/color-glass/42/000000/wind.png" /><br />
+            <p class="auto-style7"><strong>Windy</strong></p>
+            <span class="text-white">5Â°</span>
+          </div>
+        </div>
+      </section>
+
+     
+      <footer style="width: 1032px; height: 30px; position: absolute; top: 819px; left: 53px; z-index: 2; bottom: -775px">
+        <p style="z-index: 1; width: 1032px; height: 30px; position: absolute; top: -32px; left: 6px"><a href="http://www.icuzambia.net" class="text-white"><strong>
+		  <span class="auto-style2">ICU Zambia</span></strong></a><li></li><a></a>
+		  <a href="https://www.zrdc.org" class="text-white"><strong>
+		  <span class="auto-style2">ZRDC</span></strong></a><li></li><a></a>
+
+        
+          <span class="text-black-50"><strong>chakukhula ward.All Rights Reserved.Designed and Maintained By MONICA PHIRI.SIN 2402987283</strong></span><span class="text-warning"><strong>
+		  </strong>
+          </span>
+          
+		  
+        </p>
+      </footer>
+    </body></main><body style="z-index: 1; width: 1102px; height: 74px; position: absolute; top: 0px; left: 67px">
+    <script src="index.js"></script>
+  </body></body></html>
