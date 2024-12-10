@@ -110,6 +110,6 @@ Distributed under the ICU License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name -monicaphiri90@gmail.com
+Monica Phiri -monicaphiri90@gmail.com
 
 Project Link: [https://github.com/monica172316/weather-forcast-App](https://github.com/monica172316/weather-forcast-App)
